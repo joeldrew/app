@@ -7,12 +7,14 @@ import { size, isEmpty } from "lodash";
 export default function FormularioRegistro() {
     const [formData, setFormData] = useState(defaultFormValue());
 
+    console.log(formData);
     const onSubmit = () => {
-        console.log(formData);
+       // console.log(formData);
         if(
-            isEmpty(formData.email) || 
-            isEmpty(formData.password)||
-            isEmpty(formData.repeatPassword)
+            isEmpty(formData.email) ||
+            isEmpty(formData.password) ||
+            isEmpty(formData.segundacontraseña)
+            
             
             ){
             console.log("todos los campos son obligatorios");
@@ -40,14 +42,14 @@ export default function FormularioRegistro() {
                 secureTextEntry={true}
                 onChange={(e) => onChange(e, "password")}
             />
-           <Input
-                placeholder="repeatcontraseña"
+            <Input
+                placeholder="Repetir Contraseña"
                 containerStyle={styles.inputForm}
                 password={true}
                 secureTextEntry={true}
-                onChange={(e) => onChange(e, "repeatpassword")}
+                onChange={(e) => onChange(e, "segundacontraseña")}
             />
-
+            
             <Button
              title="Unirse"
              containerStyle={styles.btnContainerRegister}
@@ -64,7 +66,7 @@ function defaultFormValue(){
     return{
         email: "",
         password: "",
-        repeatPassword: "",
+        segundacontraseña:""
 
 
     }
