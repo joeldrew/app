@@ -18,8 +18,15 @@ export default function FormularioRegistro() {
             
             ){
             console.log("todos los campos son obligatorios");
+
+        }else if (!validateEmail(formData.email)){
+            console.log("El email no es correcto");              
+        }else if (formData.password !== formData.segundacontraseña) {
+            console.log("Las contraseñas tienen que ser iguales");
+        }else if (size(formData.password < 6)){
+            console.log("La contraseña almenos 6 caracteres");
         }else{
-            console.log("todos llenos");
+            console.log("ok");
         }
     }
 
