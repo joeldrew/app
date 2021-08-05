@@ -8,9 +8,11 @@ export default function FormularioRegistro() {
     const [formData, setFormData] = useState(defaultFormValue());
 
     const onSubmit = () => {
+        console.log(formData);
         if(
             isEmpty(formData.email) || 
-            isEmpty(formData.password)
+            isEmpty(formData.password)||
+            isEmpty(formData.repeatPassword)
             
             ){
             console.log("todos los campos son obligatorios");
@@ -20,8 +22,8 @@ export default function FormularioRegistro() {
     }
 
     const onChange = (e, type) => {
-        setFormData({...formData, [type]: e.nativeEvent.text})
-    }
+        setFormData({ ...formData, [type]: e.nativeEvent.text });
+      };
     
     return(
         <View style={styles.formContainer}>
@@ -62,11 +64,11 @@ function defaultFormValue(){
     return{
         email: "",
         password: "",
-        repeatPassword: ""
+        repeatPassword: "",
 
 
     }
-}
+};
 
 const styles = StyleSheet.create({
     formContainer:{
